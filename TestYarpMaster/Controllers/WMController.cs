@@ -44,7 +44,7 @@ namespace TestYarpMaster.Controllers
         public async Task<IEnumerable<WeatherForecast>> GetDeailAsync()
         {
             var request = new HttpRequestMessage(HttpMethod.Get,
-                "https://testyarpdetail.dev/WD/Get");
+                "https://testyarpdetail.dev/WD");
 
             var client = _clientFactory.CreateClient();
 

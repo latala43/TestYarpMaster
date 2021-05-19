@@ -32,6 +32,12 @@ namespace TestYarpDetail
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TestYarpDetail", Version = "v1" });
             });
+
+            //services.AddHttpsRedirection(options =>
+            //{
+            //    options.HttpsPort = 6005;
+            //});
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
