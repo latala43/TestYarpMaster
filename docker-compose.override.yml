@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  testyarpmaster.dev:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=123123
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/testyarpcert.pfx
+    ports:
+      - "80"
+      - "443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      #- ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${USERPROFILE}/.aspnet/https:/https:ro
+
+  testyarpdetail.dev:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=123123
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/testyarpcert.pfx
+    ports:
+      - "6005:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${USERPROFILE}/.aspnet/https:/https:ro

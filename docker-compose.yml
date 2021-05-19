@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  testyarpmaster.dev:
+    image: ${DOCKER_REGISTRY-}testyarpmaster
+    container_name: testyarpmaster.dev
+    build:
+      context: .
+      dockerfile: TestYarpMaster/Dockerfile
+    depends_on:
+      - testyarpdetail.dev
+
+  testyarpdetail.dev:
+    image: ${DOCKER_REGISTRY-}testyarpdeail
+    container_name: testyarpdetail.dev
+    build:
+      context: .
+      dockerfile: TestYarpDetail/Dockerfile
